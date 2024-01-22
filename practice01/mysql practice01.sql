@@ -20,7 +20,10 @@ order by max_salary desc;
 
 
 #담당 매니저가 배정되어있으나 커미션비율이 없고, 월급이 3000초과인 직원의 이름, 매니저아이디, 커미션 비율, 월급을 월급이 많은사람부터 출력하세요.
-select  *
+select  first_name
+		,manager_id
+        ,commission_pct
+        ,salary
 from employees
 where 	commission_pct is null
 		and salary>3000
