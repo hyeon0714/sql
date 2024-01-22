@@ -10,6 +10,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>practice01/mysql practice01.sql</name>
+			<type>1</type>
+			<location>C:/javaStudy/workspace/mysql/practice01/mysql practice01.sql</location>
+		</link>
+		<link>
 			<name>sql/select문.sql</name>
 			<type>1</type>
 			<location>C:/javaStudy/workspace/mysql/sql/select문.sql</location>
