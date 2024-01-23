@@ -8,4 +8,16 @@
 	</buildSpec>
 	<natures>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>practice01/mysql practice02.sql</name>
+			<type>1</type>
+			<location>C:/javaStudy/workspace/mysql/practice01/mysql practice02.sql</location>
+		</link>
+		<link>
+			<name>sql/기본함수2.sql</name>
+			<type>1</type>
+			<location>C:/javaStudy/workspace/mysql/sql/기본함수2.sql</location>
+		</link>
+	</linkedResources>
 </projectDescription>
