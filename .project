@@ -10,14 +10,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>practice01/mysql practice02.sql</name>
-			<type>1</type>
-			<location>C:/javaStudy/workspace/mysql/practice01/mysql practice02.sql</location>
-		</link>
-		<link>
 			<name>practice01/mysql practice03.sql</name>
 			<type>1</type>
-			<location>C:/javaStudy/workspace/mysql/practice01/mysql practice03.sql</location>
+			<location>C:/sql/sql/practice01/mysql practice03.sql</location>
 		</link>
 		<link>
 			<name>sql/기본함수2.sql</name>
