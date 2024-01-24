@@ -61,14 +61,14 @@ order by region_name, country_name desc;
 
 #자신의 매니저보다 채용일(hire_date)이 빠른 사원의 
 #사번(employee_id), 이름(first_name)과 채용일(hire_date), 매니저이름(first_name), 매니저입사일(hire_date)을 조회하세요.
-select	m.employee_id,
-		m.first_name,
-		m.hire_date,
-        e.first_name,
-        e.hire_date
+select	e.employee_id,
+		e.first_name,
+		e.hire_date,
+        m.first_name,
+        m.hire_date
 from employees e join employees m
-on e.employee_id=m.manager_id
-having e.hire_date>m.hire_date;                  #############################
+on e.manager_id=m.employee_id
+having e.hire_date<m.hire_date;                  #############################
 
 #나라별로 어떠한 부서들이 위치하고 있는지 파악하려고 합니다.
 #나라명, 나라아이디, 도시명, 도시아이디, 부서명, 부서아이디를 나라명(오름차순)로 정렬하여 출력하세요.
@@ -146,3 +146,4 @@ join departments d
 on 		e.department_id=d.department_id
 join employees m
 on 		e.manager_id=m.employee_id;
+
