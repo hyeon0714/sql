@@ -65,8 +65,8 @@ order by max(salary)-min(salary) desc;
 #매니저아이디는 manager_id, 평균급여는 avg, 최대급여는 max, 최소급여는 min 으로 출력합니다.
 select	manager_id
 		,round(avg(salary),1) avg
-		,min(salary) max
-        ,max(salary) min
+		,min(salary) min
+        ,max(salary) max
 from employees
 group by manager_id
 having avg(salary)>=5000
