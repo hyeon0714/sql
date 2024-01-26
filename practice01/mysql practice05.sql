@@ -161,7 +161,8 @@ and em.fir=em.s;
 #평균 월급(salary)이 가장 높은 지역과 평균월급은?( limt사용하지 말고 그룹함수 사용할 것)
 
 select	region_name,
-		avg(salary)
+		avg(salary) s, 
+        first_value(avg(salary)) over(order by avg(salary) desc) fir
 from regions r
 join countries c
 on r.region_id=c.region_id
@@ -173,7 +174,26 @@ join employees e
 on d.department_id=e.department_id
 group by region_name
 having region_name='europe'
-order by avg(salary) desc;
+order by avg(salary) desc;				#1번
+
+select	r.region_name,
+		re.s
+from regions r,
+(select	region_name,
+		avg(salary) s, 
+        first_value(avg(salary)) over(order by avg(salary) desc) fir
+from regions r
+join countries c
+on r.region_id=c.region_id
+join locations l
+on c.country_id=l.country_id
+join departments d
+on l.location_id=d.location_id
+join employees e
+on d.department_id=e.department_id
+group by region_name) re
+where r.region_name=re.region_name
+and re.s=re.fir;							#2번
 
 #평균 월급(salary)이 가장 높은 업무와 평균월급은? (limt사용하지 말고 그룹함수 사용할 것)
 select job_title,
@@ -183,4 +203,18 @@ join employees e
 where j.job_id=e.job_id
 group by job_title
 having job_title='president'
-order by avg(salary) desc;      #마지막 두문은 limit없이 어떻게 하냐
+order by avg(salary) desc;      #마지막 두문제는 limit없이 어떻게 하냐
+
+
+select	j.job_title,
+		ti.av
+from jobs j,
+(Select job_title,
+		avg(salary) av, 
+		first_value(avg(salary)) over(order by avg(salary) desc) fir
+from jobs j
+join employees e
+where j.job_id=e.job_id
+group by job_title) ti
+where j.job_title=ti.job_title
+and ti.av=ti.fir				#2번으로 만들긴하네 개복잡해
