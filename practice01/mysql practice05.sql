@@ -181,7 +181,7 @@ select	r.region_name,
 from regions r,
 (select	region_name,
 		avg(salary) s, 
-        first_value(avg(salary)) over(order by avg(salary) desc) fir
+        first_value(avg(salary)) over(order by avg(salary) desc) fir		#first_value는 찾을 첫번째 값을 지정할때 over를 통해 order by까지 넣어야한다
 from regions r
 join countries c
 on r.region_id=c.region_id
